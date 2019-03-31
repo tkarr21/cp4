@@ -1,2 +1,2 @@
 # cp4
-bands.name with api to db
+band.names with api to db
