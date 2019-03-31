@@ -1,0 +1,50 @@
+body {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 16px;
+    padding: 20px 100px 0px 100px;
+    background: #b193a4;
+    margin-bottom: 80px;
+}
+
+button {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1em;
+}
+
+input {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1em;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+footer {
+    background-color: #4f4848;
+    color: white;
+	padding: 10px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 25px;
+    position: fixed;
+    text-align: center;
+}
+
+
+
+#nouns {
+    float: left;
+    margin-right: 10px;
+}
+
+#adjectives {
+    float: left;
+}
+
+a {
+    
+    color: white;
+}
