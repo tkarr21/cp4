@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+  <title>Band Names</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Band.Names</h1>
+        <p>Trying to to think of a cool band name?? Enter in some nouns and adjectives and let Band.Names make a cool combination for a unique name!</p>
+        <form @submit.prevent="addedNounComponent">
+            <input v-model="addedNoun" placeholder="Noun">
+            <button type="submit">Add</button>
+        </form>
+        <br/>
+
+        <form @submit.prevent="addedAdjectiveComponent">
+            <input v-model="addedAdjective" placeholder="Adjective">
+            <button type="submit">Add</button>
+        </form>
+
+        <br/>
+        <div class="controls">
+            <button v-on:click="generateName">Make a Name</button>
+            <button v-on:click="showNoun">Show Nouns</button>
+            <button v-on:click="showAdjective">Show Adjectives</button>
+        </div>
+        <h3 v-show="current.noun !== '' && current.adjective !== ''">{{current.adjective}} {{current.noun}} </h3>
+        <div id="content">
+            <div id="nouns" v-show="showNouns == true">
+                <h4>Your nouns</h4>
+                <ul>
+                    <li v-for="item in nouns">{{item}}</li>
+                </ul>
+            </div>
+
+            <div id="adjectives" v-show="showAdjectives == true">
+                <h4>Your adjectives</h4>
+                <ul>
+                    <li v-for="item in adjectives">{{item}}</li>
+                </ul>
+            </div>
+            <div id="cleared"></div>
+        </div>
+
+        <p>
+        
+        </p>
+       <br>
+
+        <h2>Submit and vote for your Favorite Names!</h2>
+        <div class="form">
+            <form @submit.prevent="submitName">
+                <input v-model="addName" placeholder="Band Name to add">
+                <input v-model="creator" placeholder="Name of Submitter">
+                <input v-model="key" type="password" placeholder="Give a Removal Key">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="list" v-if="names.length > 0">
+            <div class="nameItem" v-for="n in names">
+                <br>
+                <h1>{{n.name}}</h1>
+                <p>votes: {{n.count}} &emsp; &emsp;-- {{n.creator}}</p>
+                <button @click="upvote(n)">+ 1</button>
+                <button @click="downvote(n)">- 1</button>  
+                <form @submit.prevent="deleteName(n)">
+                    <input v-model="del_req_key" type="password" placeholder="Required Key">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    
+
+        <footer>
+            <a href="https://github.com/tkarr21/cp4.git">GitHub</a>
+        </footer>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="/script.js"></script>
+</body>
+
+</html>

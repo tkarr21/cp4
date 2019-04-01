@@ -33,15 +33,33 @@ footer {
     text-align: center;
 }
 
-
+#content {
+    margin-right: 200px;
+  }
 
 #nouns {
     float: left;
+    width: 50%;
     margin-right: 10px;
+    
+}
+
+#nouns ul {
+    text-align: left;
 }
 
 #adjectives {
-    float: left;
+    float: right;
+    width: 200px;
+    /*margin-right: -200px;*/
+}
+
+#cleared {
+    clear: both;
+}
+
+.nameItem h1 {
+    font-family: 'Orbitron', sans-serif;
 }
 
 a {
